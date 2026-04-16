@@ -1,4 +1,4 @@
-# Card Payment Processing Pipeline — Restate Demo
+# Card Payment Processing System — Restate Demo
 
 ## Build & Run
 

@@ -60,7 +60,7 @@
   <rect width="1100" height="880" rx="12" fill="url(#bgGrad)"/>
 
   <!-- Title -->
-  <text x="550" y="42" text-anchor="middle" fill="#f1f5f9" font-size="22" font-weight="700" letter-spacing="0.5">Card Payment Processing Pipeline</text>
+  <text x="550" y="42" text-anchor="middle" fill="#f1f5f9" font-size="22" font-weight="700" letter-spacing="0.5">Card Payment Processing System</text>
   <text x="550" y="64" text-anchor="middle" fill="#94a3b8" font-size="13">Powered by Restate — Five paradigms, one system</text>
 
   <!-- Legend -->

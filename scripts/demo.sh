@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Full demo walkthrough for payment pipeline
+# Full demo walkthrough for payment processing system
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -17,7 +17,7 @@ run() {
 }
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║   Card Payment Processing Pipeline — Powered by Restate    ║"
+echo "║   Card Payment Processing System — Powered by Restate     ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "End-to-end payment lifecycle, five paradigms, one system:"

@@ -1,6 +1,6 @@
-# Card Payment Processing Pipeline — Powered by Restate
+# Card Payment Processing System — Powered by Restate
 
-An end-to-end card payment processing pipeline running entirely in [Restate](https://restate.dev). The demo models a real-world payment lifecycle:
+An end-to-end card payment processing system running entirely in [Restate](https://restate.dev). The demo models a real-world payment lifecycle:
 
 1. **Synchronous authorization** — merchants submit auth requests as stateful RPCs
 2. **Clearing file processing** — a batch file is fanned out into parallel workflow invocations
@@ -14,7 +14,7 @@ Five paradigms — stateful RPC, event-driven processing, per-event workflows, b
 
 ## How It Works
 
-A card payment moves through several stages over the course of a day. This pipeline models all of them.
+A card payment moves through several stages over the course of a day. This system models all of them.
 
 **Authorization.** When a cardholder swipes their card, the merchant's payment processor sends an authorization request. In Restate, each authorization is a Virtual Object keyed by `authId` — a stateful RPC. The `PaymentAuth` handler validates the request (checks amount limits, fraud rules), stores the authorization result as durable state, and returns an approval or decline. Because Virtual Objects provide exclusive access per key, there's no risk of concurrent mutations to the same authorization.
 
@@ -24,7 +24,7 @@ A card payment moves through several stages over the course of a day. This pipel
 
 **Settlement.** At end of day, `SettlementWindow` triggers batch settlement. It reads the set of merchants that accumulated payments during the day and fans out `settle()` calls to all of them as parallel durable futures using `DurableFuture.all()`. Each merchant's settlement calculates fees (2.1% discount rate + $0.10 per transaction), credits the merchant via the multi-rail API, and records the settlement. All of this happens in parallel with full error visibility — if any merchant's settlement fails, the caller knows.
 
-**Reconciliation.** At any point — before, during, or after settlement — a merchant can query their current status. `MerchantSettlement.getReconciliation()` is a `@Shared` handler, meaning it runs concurrently with no locking. It reads the current durable state and returns a reconciliation report showing unsettled payments, settled payments, and settlement records. This is a real-time serving layer built directly on top of the same state that the processing pipeline writes to — no separate database, no replication lag.
+**Reconciliation.** At any point — before, during, or after settlement — a merchant can query their current status. `MerchantSettlement.getReconciliation()` is a `@Shared` handler, meaning it runs concurrently with no locking. It reads the current durable state and returns a reconciliation report showing unsettled payments, settled payments, and settlement records. This is a real-time serving layer built directly on top of the same state that the processing system writes to — no separate database, no replication lag.
 
 ## Architecture
 
