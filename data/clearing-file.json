@@ -1,0 +1,31 @@
+{
+  "events": [
+    {
+      "paymentId": "PAY-1776322915-15382",
+      "authId": "AUTH-001",
+      "merchantId": "MERCHANT-ACME",
+      "amount": 150.0,
+      "currency": "USD",
+      "cardNetwork": "AMEX",
+      "timestamp": "2026-04-16T07:01:55Z"
+    },
+    {
+      "paymentId": "PAY-1776322920-23560",
+      "authId": "AUTH-002",
+      "merchantId": "MERCHANT-ACME",
+      "amount": 275.5,
+      "currency": "USD",
+      "cardNetwork": "AMEX",
+      "timestamp": "2026-04-16T07:02:00Z"
+    },
+    {
+      "paymentId": "PAY-1776322921-29920",
+      "authId": "AUTH-003",
+      "merchantId": "MERCHANT-GLOBEX",
+      "amount": 89.99,
+      "currency": "USD",
+      "cardNetwork": "AMEX",
+      "timestamp": "2026-04-16T07:02:01Z"
+    }
+  ]
+}
