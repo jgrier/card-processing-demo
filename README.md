@@ -8,7 +8,9 @@ An end-to-end card payment processing pipeline running entirely in [Restate](htt
 4. **End-of-day settlement** — batch fan-out settles all merchants in parallel, calculating fees and crediting accounts
 5. **Real-time serving layer** — merchants query their current reconciliation status at any time via shared handlers
 
-Five paradigms — stateful RPC, event-driven processing, workflow orchestration, batch processing, and real-time serving — unified in one system, one deployment, one programming model.
+Five paradigms — stateful RPC, event-driven processing, per-event workflows, batch processing, and real-time serving — unified in one system, one deployment, one programming model.
+
+![Architecture](architecture.svg)
 
 ## How It Works
 
