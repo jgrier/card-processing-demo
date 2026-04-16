@@ -29,7 +29,7 @@ A card payment moves through several stages over the course of a day. This pipel
 | Component | Restate Primitive | Key | Paradigm |
 |---|---|---|---|
 | PaymentAuth | Virtual Object | authId | Stateful RPC |
-| ClearingGateway | Service (stateless) | — | Event-driven fan-out |
+| ClearingGateway | Service (stateless) | — | Event-driven, parallel, processing |
 | ClearingWorkflow | Workflow | paymentId | Durable workflow |
 | MerchantSettlement | Virtual Object | merchantId | Incremental aggregation + batch |
 | SettlementWindow | Virtual Object | date string | Batch fan-out trigger |
@@ -39,7 +39,7 @@ A card payment moves through several stages over the course of a day. This pipel
 ```
 Auth Request ──► PaymentAuth[authId].authorize()       (stateful RPC)
                          │
-Clearing File ──► ClearingGateway.ingest()              (event-driven fan-out via send())
+Clearing File ──► ClearingGateway.ingest()              (event-driven, parallel, processing via send())
                          │
                   ClearingWorkflow[paymentId].run()      (durable workflow)
                     ├── getAuth() ← PaymentAuth
