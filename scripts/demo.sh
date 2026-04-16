@@ -22,7 +22,7 @@ echo "╚═══════════════════════�
 echo ""
 echo "End-to-end payment lifecycle, five paradigms, one system:"
 echo "  1. Synchronous authorization (stateful RPC)"
-echo "  2. Clearing file fan-out (event-driven streaming)"
+echo "  2. Clearing file fan-out (event-driven processing)"
 echo "  3. Per-payment processing (workflow orchestration)"
 echo "  4. End-of-day settlement (batch processing)"
 echo "  5. Merchant reconciliation (real-time serving layer)"
@@ -51,7 +51,7 @@ run "$SCRIPT_DIR/create-auth.sh" AUTH-003 MERCHANT-GLOBEX 89.99
 pause
 
 echo "════════════════════════════════════════════════════════════════"
-echo " STEP 2: Event-Driven Streaming — Clearing File Ingestion"
+echo " STEP 2: Event-Driven Processing — Clearing File Ingestion"
 echo "════════════════════════════════════════════════════════════════"
 echo ""
 echo "The clearing file has accumulated 3 events from the auths above."
